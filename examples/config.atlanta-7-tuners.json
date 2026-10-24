@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "listen": "0.0.0.0:8090",
+  "state_dir": "state",
+  "runtime_dir": "run",
+  "muxes": [
+    {
+      "name": "atlanta-wsb",
+      "device": "1234ABCD",
+      "tuner": 0,
+      "rf": 32,
+      "services": [
+        {"program": 1, "virtual_channel": "2.1", "name": "WSB-TV ABC"},
+        {"program": 2, "virtual_channel": "2.2", "name": "Bounce TV"},
+        {"program": 3, "virtual_channel": "2.3", "name": "Dabl"},
+        {"program": 4, "virtual_channel": "2.4", "name": "West"},
+        {"program": 5, "virtual_channel": "17.3", "name": "Court TV"},
+        {"program": 6, "virtual_channel": "2.5", "name": "ION"}
+      ]
+    },
+    {
+      "name": "atlanta-waga",
+      "device": "1234ABCD",
+      "tuner": 1,
+      "rf": 27,
+      "services": [
+        {"program": 3, "virtual_channel": "5.1", "name": "WAGA-TV FOX"},
+        {"program": 4, "virtual_channel": "5.2", "name": "Movies!"},
+        {"program": 5, "virtual_channel": "5.3", "name": "BUZZR"},
+        {"program": 6, "virtual_channel": "5.4", "name": "ROAR"},
+        {"program": 7, "virtual_channel": "5.5", "name": "Catchy Comedy"},
+        {"program": 8, "virtual_channel": "5.6", "name": "FOX Weather"}
+      ]
+    },
+    {
+      "name": "atlanta-wxia",
+      "device": "1234ABCD",
+      "tuner": 2,
+      "rf": 10,
+      "services": [
+        {"program": 3, "virtual_channel": "11.1", "name": "WXIA-TV NBC"},
+        {"program": 4, "virtual_channel": "17.2", "name": "Peachtree Sports Network"},
+        {"program": 5, "virtual_channel": "11.3", "name": "True Crime Network"},
+        {"program": 6, "virtual_channel": "11.4", "name": "The Nest"},
+        {"program": 7, "virtual_channel": "11.5", "name": "Oxygen"},
+        {"program": 9, "virtual_channel": "11.7", "name": "GREAT"}
+      ]
+    },
+    {
+      "name": "atlanta-wpxa",
+      "device": "1234ABCD",
+      "tuner": 3,
+      "rf": 16,
+      "services": [
+        {"program": 3, "virtual_channel": "14.1", "name": "WPXA-TV ION"},
+        {"program": 4, "virtual_channel": "14.2", "name": "ION Plus"},
+        {"program": 5, "virtual_channel": "14.3", "name": "Laff"},
+        {"program": 6, "virtual_channel": "14.4", "name": "ION Mystery"},
+        {"program": 7, "virtual_channel": "14.5", "name": "Defy TV"},
+        {"program": 8, "virtual_channel": "14.6", "name": "Busted"},
+        {"program": 9, "virtual_channel": "14.7", "name": "Game Show Central"},
+        {"program": 10, "virtual_channel": "14.8", "name": "HSN2"}
+      ]
+    },
+    {
+      "name": "atlanta-wgtv",
+      "device": "1234ABCE",
+      "tuner": 0,
+      "rf": 7,
+      "services": [
+        {"program": 1, "virtual_channel": "8.1", "name": "WGTV PBS"},
+        {"program": 2, "virtual_channel": "8.2", "name": "Create"},
+        {"program": 3, "virtual_channel": "8.3", "name": "All Arts"},
+        {"program": 4, "virtual_channel": "8.4", "name": "PBS Kids 24/7"}
+      ]
+    },
+    {
+      "name": "atlanta-wuvg",
+      "device": "1234ABCE",
+      "tuner": 1,
+      "rf": 18,
+      "services": [
+        {"program": 1, "virtual_channel": "34.1", "name": "WUVG-DT Univision"},
+        {"program": 2, "virtual_channel": "34.2", "name": "UniMás"},
+        {"program": 3, "virtual_channel": "34.3", "name": "GREAT"},
+        {"program": 4, "virtual_channel": "34.4", "name": "Nosey"},
+        {"program": 5, "virtual_channel": "34.5", "name": "Shop LC"},
+        {"program": 6, "virtual_channel": "34.6", "name": "MovieSphere Gold"},
+        {"program": 7, "virtual_channel": "34.7", "name": "BT2 Infomercials"}
+      ]
+    },
+    {
+      "name": "atlanta-watl",
+      "device": "1234ABCE",
+      "tuner": 2,
+      "rf": 25,
+      "services": [
+        {"program": 3, "virtual_channel": "36.1", "name": "WATL MyNetworkTV"},
+        {"program": 4, "virtual_channel": "36.2", "name": "Nosey"},
+        {"program": 5, "virtual_channel": "36.3", "name": "Antenna TV"},
+        {"program": 6, "virtual_channel": "11.11", "name": "WXIA-TV NBC Simulcast"},
+        {"program": 7, "virtual_channel": "11.2", "name": "Quest"},
+        {"program": 8, "virtual_channel": "36.4", "name": "QVC"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "listen": "0.0.0.0:8090",
+  "state_dir": "state",
+  "runtime_dir": "run",
+  "muxes": [
+    {
+      "name": "example",
+      "device": "1234ABCD",
+      "tuner": 0,
+      "rf": 7,
+      "services": [
+        {"program": 3, "virtual_channel": "5.1", "name": "Example TV"},
+        {"program": 4, "virtual_channel": "5.2", "name": "Example Two"}
+      ]
+    }
+  ]
+}

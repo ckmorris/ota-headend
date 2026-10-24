@@ -1,0 +1,13 @@
+/bin/
+/dist/
+/config.json
+/scan*.json
+/state/
+/run/
+/channels.m3u
+/config/*
+!/config/.keep
+!/config/README.md
+!/config/headend.json
+.DS_Store
+*.tmp

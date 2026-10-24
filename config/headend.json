@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "listen": "0.0.0.0:8090",
+  "state_dir": "state",
+  "runtime_dir": "run",
+  "muxes": []
+}
