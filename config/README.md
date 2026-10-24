@@ -4,13 +4,15 @@ Use `config/headend.json` as the shared configuration for all devices, tuners,
 and services. The repository includes a valid empty configuration with LAN
 playback enabled at `0.0.0.0:8090`. No tuner is assigned until you scan and add
 a multiplex. Run commands from the project root.
+Read [the license](../LICENSE.md) and [end-user terms](../EULA.md) first;
+`run --accept-terms` confirms your legitimate-use and anti-piracy agreement.
 
 ```sh
 ./bin/ota-headend doctor --config config/headend.json
 ./bin/ota-headend discover
 ./bin/ota-headend scan --config config/headend.json --device YOUR_DEVICE_ID --tuner 0 --output config/scan.json
 ./bin/ota-headend add --config config/headend.json --scan config/scan.json --rf YOUR_RF_CHANNEL --name local
-./bin/ota-headend run --config config/headend.json
+./bin/ota-headend run --accept-terms --config config/headend.json
 ```
 
 Replace the placeholders with a discovered hardware ID and a physical RF

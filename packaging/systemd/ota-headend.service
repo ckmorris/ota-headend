@@ -10,7 +10,7 @@ Type=simple
 User=ota-headend
 Group=ota-headend
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
-ExecStart=/usr/local/bin/ota-headend run --config /etc/ota-headend/config.json
+ExecStart=/usr/local/bin/ota-headend run --config /etc/ota-headend/config.json --accept-terms
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=90

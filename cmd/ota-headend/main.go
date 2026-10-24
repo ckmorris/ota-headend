@@ -49,6 +49,8 @@ Usage: ota-headend COMMAND [OPTIONS]
 Use ota-headend COMMAND --help for options. Options follow the command.
 Default configuration: ./config.json. Relative state/runtime paths are
 resolved beside that file. Licensed under PolyForm Noncommercial 1.0.0; see LICENSE.md.
+Legitimate use only; piracy is prohibited. Read EULA.md before running.
+Starting the headend requires run --accept-terms to confirm your agreement.
 `
 
 func main() {
@@ -79,7 +81,7 @@ func run(ctx context.Context, args []string, out, stderr io.Writer) error {
 	configPath := f.String("config", "config.json", "shared configuration file for all multiplexes")
 	var device, name, scanPath, outputPath, rf, programs, base, listen *string
 	var tuner *int
-	var asJSON *bool
+	var asJSON, acceptTerms *bool
 	switch command {
 	case "init":
 		listen = f.String("listen", headend.DefaultConfig().Listen, "HTTP listen IP:port")
@@ -104,6 +106,8 @@ func run(ctx context.Context, args []string, out, stderr io.Writer) error {
 		asJSON = f.Bool("json", false, "print JSON")
 	case "playlist":
 		base = f.String("base-url", "", "player-facing base URL, e.g. http://192.0.2.10:8090")
+	case "run":
+		acceptTerms = f.Bool("accept-terms", false, "agree to LICENSE.md and EULA.md, including legitimate use only and no piracy (required)")
 	}
 	if err := f.Parse(args[1:]); err != nil {
 		if errors.Is(err, flag.ErrHelp) {
@@ -113,6 +117,12 @@ func run(ctx context.Context, args []string, out, stderr io.Writer) error {
 	}
 	if f.NArg() != 0 {
 		return errors.New("unexpected positional arguments; options must follow the command")
+	}
+	if command == "run" {
+		if !*acceptTerms {
+			return errors.New("read LICENSE.md and EULA.md before running; you must agree to legitimate use only and no piracy. Re-run with --accept-terms to confirm your agreement")
+		}
+		fmt.Fprintln(stderr, "Terms accepted: legitimate use only; piracy and unlawful redistribution are prohibited. See EULA.md.")
 	}
 	if command == "init" {
 		c := headend.DefaultConfig()

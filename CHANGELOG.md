@@ -1,5 +1,13 @@
 # Changelog
 
+## Changes after the initial release
+
+- Add an explicit legitimate-use and anti-piracy agreement in EULA.md, with a
+  prominent README disclaimer. Existing released copies retain their original
+  terms; the standard PolyForm license text is unchanged.
+- Require `run --accept-terms` for new builds. The Ubuntu installer's acceptance
+  covers the license and end-user terms, and its service unit includes the flag.
+
 ## 0.1.0 — Unreleased
 
 - Standalone OTA Headend, attributed to Chris Morris.

@@ -13,14 +13,18 @@ while (($#)); do
     --config) config="${2:?--config needs a path}"; shift 2 ;;
     --binary) binary="${2:?--binary needs a path}"; shift 2 ;;
     --accept-license) accepted=true; shift ;;
-    --help|-h) echo 'Usage: sudo ./scripts/install-linux.sh --config FILE [--binary FILE] --accept-license'; exit 0 ;;
+    --help|-h)
+      echo 'Usage: sudo ./scripts/install-linux.sh --config FILE [--binary FILE] --accept-license'
+      echo '--accept-license confirms agreement to LICENSE.md and EULA.md, including legitimate use only and no piracy.'
+      exit 0 ;;
     *) echo "Unknown argument: $1" >&2; exit 1 ;;
   esac
 done
 if [[ "$accepted" != true ]]; then
-  echo "Read $project_dir/LICENSE.md. Re-run with --accept-license to accept the PolyForm Noncommercial 1.0.0 license." >&2
+  echo "Read $project_dir/LICENSE.md and $project_dir/EULA.md. Re-run with --accept-license to agree to the license and end-user terms, including legitimate use only and no piracy." >&2
   exit 1
 fi
+echo 'Terms accepted: LICENSE.md and EULA.md, including legitimate use only and no piracy.'
 [[ "$(uname -s)" == Linux ]] || { echo 'This installer requires Linux.' >&2; exit 1; }
 [[ "$EUID" -eq 0 ]] || { echo 'Run the installer with sudo.' >&2; exit 1; }
 [[ -f "$config" && -x "$binary" ]] || { echo 'Provide --config FILE and a built binary (make build).' >&2; exit 1; }

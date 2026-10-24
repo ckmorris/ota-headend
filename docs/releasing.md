@@ -60,7 +60,7 @@ make release VERSION=v0.1.0-rc.1
 
 This runs checks and creates Linux amd64 and arm64 archives, an allowlisted
 source archive, and `SHA256SUMS` under `dist/v0.1.0-rc.1/`. Binary archives include
-the license, licensing summary, CLA, third-party/toolchain notices, build metadata,
+the license, end-user terms, CLA, third-party/toolchain notices, build metadata,
 installer, service, example configuration, and user documentation. The script
 refuses to overwrite an existing version directory. Give a corrected candidate
 a new version; do not replace published bytes under the same checksum/version.

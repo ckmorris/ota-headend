@@ -67,7 +67,7 @@ For a normal installation, use the discovery/scan/add flow above to populate
 `config/headend.json`. If you live in Atlanta, you can adapt this example by
 using its JSON as `config/headend.json`, replacing both hardware IDs, and
 confirming the RF/program mappings. Then start it with
-`./bin/ota-headend run --config config/headend.json`. Running the headend claims
+`./bin/ota-headend run --accept-terms --config config/headend.json`. Running the headend claims
 the seven assigned idle tuners; validation alone activates none.
 
 The listener defaults to `0.0.0.0:8090` for LAN playback. Startup and `status`

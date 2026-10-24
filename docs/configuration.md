@@ -17,7 +17,7 @@ received through configuration or HTTP.
 | `add --scan FILE --rf N --name NAME [--device ID] [--tuner N] [--programs LIST]` | None | Add a multiplex from scan results |
 | `remove --name NAME` | None | Remove a multiplex while stopped |
 | `validate` | None | Strictly validate JSON and assignments |
-| `run` | Tunes configured idle tuners | Capture and serve HLS until signaled |
+| `run --accept-terms` | Tunes configured idle tuners | Accept end-user terms, then capture and serve HLS until signaled |
 | `status [--json]` | None | Read local status; nonzero exit if unhealthy |
 | `playlist [--base-url URL]` | None | Write an M3U lineup to stdout |
 | `recover` | Releases authenticated saved claims only | Recover after a crash |
@@ -27,6 +27,11 @@ resolved state directory. Stop the active process before running them. Use one
 state directory per installation; do not run parallel configurations against the
 same physical tuners. `add` and `remove` write config atomically and start no
 capture. Configuration is read at startup, without live reload.
+
+Before starting a release with these terms, read [LICENSE.md](../LICENSE.md) and
+[EULA.md](../EULA.md). `run` requires `--accept-terms` to confirm your agreement
+to legitimate use only and no piracy. The command rejects missing acceptance
+before reading configuration, acquiring locks, or interacting with tuners.
 
 All `muxes` entries in one configuration are launched by one `run` command.
 Every configured service appears in the same `/lineup.m3u`, across all devices

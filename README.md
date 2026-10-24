@@ -11,7 +11,15 @@ subchannels on it, regardless of how many people watch.
 forks, and redistribution are permitted under its terms. Commercial use outside
 the license's permitted purposes requires a separate paid written license from
 Chris Morris. This is source-available software, not an open-source license.
-See the [licensing summary](EULA.md) for details.
+See the [end-user terms and licensing summary](EULA.md) for details.
+
+**Legitimate use only.** OTA Headend is released for lawful use, and the project
+does not condone piracy. Users must agree not to use it for copyright
+infringement, unauthorized access, unlawful retransmission or redistribution,
+or unlawful circumvention of access controls. Read [the anti-piracy agreement](EULA.md#legitimate-use-and-anti-piracy-agreement)
+before using this release. Starting the headend requires `--accept-terms` to
+confirm that agreement. Software licensing grants no rights in received media;
+lawful uses and statutory exceptions remain available.
 
 This standalone application uses the newer internal worker’s HDHomeRun/TSDuck
 capture design. It runs locally without an account, Rails server,
@@ -205,7 +213,7 @@ while stopped if you want to replace it.
 ### 5. Start streaming
 
 ```sh
-./bin/ota-headend run --config config/headend.json
+./bin/ota-headend run --accept-terms --config config/headend.json
 ```
 
 Leave that terminal open. In another terminal, from the same directory:
@@ -275,7 +283,7 @@ Use your saved scan to assign another RF multiplex to another idle tuner:
 
 ```sh
 ./bin/ota-headend add --config config/headend.json --scan config/scan.json --rf 11 --name second --tuner 1
-./bin/ota-headend run --config config/headend.json
+./bin/ota-headend run --accept-terms --config config/headend.json
 ```
 
 Replace RF 11 with a channel found by your scan. A tuner cannot be assigned twice.
@@ -295,6 +303,9 @@ dependencies, building on Ubuntu, installing `config/headend.json`, and adding
 more multiplexes after installation.
 
 Once foreground playback works, stop it and install the optional systemd service:
+
+Read LICENSE.md and EULA.md first. The installer's `--accept-license` confirms
+agreement to both, including the legitimate-use and anti-piracy terms.
 
 ```sh
 sudo ./scripts/install-linux.sh --config ./config/headend.json --accept-license
@@ -353,7 +364,7 @@ recovery, see [docs/troubleshooting.md](docs/troubleshooting.md).
 - [Validation and release checklist](docs/releasing.md)
 - [Contributing](CONTRIBUTING.md) and [contributor agreement](CLA.md)
 - [Security reporting](SECURITY.md)
-- [License](LICENSE.md), [licensing summary](EULA.md), and
+- [License](LICENSE.md), [end-user terms and licensing summary](EULA.md), and
   [third-party notices](THIRD_PARTY_NOTICES.md)
 
 For commercial use outside the permissions in LICENSE.md, contact Chris Morris

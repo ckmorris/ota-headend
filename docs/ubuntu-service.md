@@ -72,7 +72,7 @@ Validate and test the combined configuration:
 ```sh
 ./bin/ota-headend doctor --config config/headend.json
 ./bin/ota-headend validate --config config/headend.json
-./bin/ota-headend run --config config/headend.json
+./bin/ota-headend run --accept-terms --config config/headend.json
 ```
 
 Startup prints the LAN IP and combined M3U URL. It reports `Ready!` when all
@@ -82,7 +82,8 @@ configuration when moving from another host; do not copy tuner claim files.
 
 ## 3. Install and enable the service
 
-From the project directory, after reading LICENSE.md:
+From the project directory, after reading [LICENSE.md](../LICENSE.md) and
+[EULA.md](../EULA.md), including the legitimate-use and anti-piracy agreement:
 
 ```sh
 sudo ./scripts/install-linux.sh --config ./config/headend.json --accept-license
@@ -96,12 +97,16 @@ state to `/var/lib/ota-headend` and transient HLS to `/run/ota-headend`.
 The service runs:
 
 ```text
-/usr/local/bin/ota-headend run --config /etc/ota-headend/config.json
+/usr/local/bin/ota-headend run --config /etc/ota-headend/config.json --accept-terms
 ```
 
 `enable --now` starts it immediately and enables startup at boot; see
 [systemctl's documentation](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 You can close your terminal after enabling the service.
+The installer's `--accept-license` confirms agreement to both the software
+license and end-user terms. The installed unit includes `--accept-terms` for
+unattended startup after that acceptance. When upgrading from the initial
+release, run the installer to update the unit before starting the new binary.
 
 On subsequent installs, the installer preserves the existing
 `/etc/ota-headend/config.json`. The supplied `--config` does not replace that

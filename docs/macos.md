@@ -42,6 +42,10 @@ following the local Mac playback commands below.
 
 ## Discover, scan, and launch
 
+Read [LICENSE.md](../LICENSE.md) and [EULA.md](../EULA.md) before starting the
+headend. The `--accept-terms` flag confirms agreement to legitimate use only
+and no piracy.
+
 The repository includes an empty `config/headend.json`. Use it for the entire
 lineup, with scan results in the same directory:
 
@@ -56,7 +60,7 @@ tuner, using the hardware ID shown by discovery:
 ```sh
 ./bin/ota-headend scan --config config/headend.json --device YOUR_DEVICE_ID --tuner 0 --output config/scan.json
 ./bin/ota-headend add --config config/headend.json --scan config/scan.json --rf YOUR_RF_CHANNEL --name local
-./bin/ota-headend run --config config/headend.json
+./bin/ota-headend run --accept-terms --config config/headend.json
 ```
 
 Replace the placeholders with your device ID and a physical RF channel found

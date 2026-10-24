@@ -74,6 +74,30 @@ func TestSetupFlowAndConfigurationRoundTrip(t *testing.T) {
 	}
 }
 
+func TestRunRequiresTermsAcceptanceBeforeSetup(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "missing-config.json")
+	for _, flags := range [][]string{nil, {"--accept-terms=false"}} {
+		args := append([]string{"run", "--config", path}, flags...)
+		var out bytes.Buffer
+		err := run(context.Background(), args, &out, &out)
+		if err == nil || !strings.Contains(err.Error(), "--accept-terms") || !strings.Contains(err.Error(), "no piracy") {
+			t.Fatalf("missing agreement was not rejected before config access: %v", err)
+		}
+	}
+	var out bytes.Buffer
+	err := run(context.Background(), []string{"run", "--config", path, "--accept-terms"}, &out, &out)
+	if err == nil || !strings.Contains(err.Error(), "missing-config.json") {
+		t.Fatalf("accepted terms did not advance to config loading: %v", err)
+	}
+	if !strings.Contains(out.String(), "Terms accepted: legitimate use only") {
+		t.Fatal("acceptance notice missing:", out.String())
+	}
+	out.Reset()
+	if err := run(context.Background(), []string{"run", "--help"}, &out, &out); err != nil || !strings.Contains(out.String(), "accept-terms") {
+		t.Fatal("run help missing the agreement flag:", err, out.String())
+	}
+}
+
 func TestMultipleDevicesAppendToOneConfigAndShareOneLineup(t *testing.T) {
 	ctx := context.Background()
 	dir := t.TempDir()
